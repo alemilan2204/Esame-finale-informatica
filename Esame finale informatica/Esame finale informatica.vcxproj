@@ -140,6 +140,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Esame finale informatica.cpp" />
+    <ClCompile Include="Persone.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Persone.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
