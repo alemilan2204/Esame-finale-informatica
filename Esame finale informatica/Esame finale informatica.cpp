@@ -1,5 +1,6 @@
 #include <iostream>
-#include "Persone.h";
+#include "Persone.h"
+#include "Elenco.h"
 using namespace std;
 
 int main()
@@ -22,6 +23,6 @@ int main()
     cout << endl;
     alberto.StampaInformazioni();
 
-
+    Elenco elenco1 = Elenco();
     
 }

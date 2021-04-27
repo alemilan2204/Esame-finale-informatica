@@ -34,5 +34,6 @@ public:
 	void SetOcchi(string eye);
 	void SetCapelli(string hair);
 	
+	
 };
 
