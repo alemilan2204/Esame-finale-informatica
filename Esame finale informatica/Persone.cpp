@@ -56,3 +56,45 @@ void Persone::StampaInformazioni()
 	cout << "Colore occhi: " << occhi << endl;
 	cout << "Colore capelli: " << capelli << endl;
 }
+
+void Persone::SetNome(string name)
+{
+	nome = name;
+	return;
+}
+
+void Persone::SetCognome(string surname)
+{
+	cognome = surname;
+	return;
+}
+
+void Persone::SetEta(int age)
+{
+	età = age;
+	return;
+}
+
+void Persone::SetSesso(char sex)
+{
+	sesso = sex;
+	return;
+}
+
+void Persone::SetAltezza(int heigh)
+{
+	altezza = heigh;
+	return;
+}
+
+void Persone::SetOcchi(string eye)
+{
+	occhi = eye;
+	return;
+}
+
+void Persone::SetCapelli(string hair)
+{
+	capelli = hair;
+	return;
+}

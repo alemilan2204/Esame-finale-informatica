@@ -26,5 +26,13 @@ public:
 	string GetCapelli();
 	void StampaInformazioni();
 
+	void SetNome(string name);
+	void SetCognome(string surname);
+	void SetEta(int age);
+	void SetSesso(char sex);
+	void SetAltezza(int heigh);
+	void SetOcchi(string eye);
+	void SetCapelli(string hair);
+	
 };
 
