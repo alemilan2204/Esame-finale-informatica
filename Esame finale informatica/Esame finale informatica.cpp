@@ -15,14 +15,20 @@ int main()
     // -- -- -- -- -- -- -- 
 
     Persone alberto = Persone("Alberto", "Rossi", 35, 'M', 183.4, "azzurri", "castani");
-    alberto.StampaInformazioni();
-    cout << "\n-- -- -- -- -- -- -- \n";
-    cout << "Inserire il nuovo nome: ";
-    cin >> modificaInfoString;
-    alberto.SetNome(modificaInfoString);
-    cout << endl;
+    Persone mario = Persone("Mario", "Rossi", 27, 'M', 150, "marroni", "neri");
+    Persone luigi = Persone("Luigi", "Rossi", 50, 'M', 171.7, "verdi", "rossi");
     alberto.StampaInformazioni();
 
-    Elenco elenco1 = Elenco();
-    
+    cout << "\n-- -- -- -- -- -- -- \n";
+ 
+    Elenco elenco = Elenco();
+
+
+    elenco.AggiungiElemento(alberto);
+    elenco.AggiungiElemento(mario);
+    elenco.AggiungiElemento(luigi);
+
+
+    elenco.StampaElenco(elenco.GetLsit());
+
 }

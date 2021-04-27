@@ -46,16 +46,6 @@ string Persone::GetCapelli()
 	return capelli;
 }
 
-void Persone::StampaInformazioni() 
-{
-	cout << "Nome: " << nome << endl;
-	cout << "Cognome: " << cognome << endl;
-	cout << "Eta': " << età << endl;
-	cout << "Sesso: " << sesso << endl;
-	cout << "Altezza: " << altezza << endl;
-	cout << "Colore occhi: " << occhi << endl;
-	cout << "Colore capelli: " << capelli << endl;
-}
 
 void Persone::SetNome(string name)
 {
@@ -81,7 +71,7 @@ void Persone::SetSesso(char sex)
 	return;
 }
 
-void Persone::SetAltezza(int heigh)
+void Persone::SetAltezza(float heigh)
 {
 	altezza = heigh;
 	return;
@@ -97,4 +87,15 @@ void Persone::SetCapelli(string hair)
 {
 	capelli = hair;
 	return;
+}
+
+void Persone::StampaInformazioni() 
+{
+	cout << "Nome: " << nome << endl;
+	cout << "Cognome: " << cognome << endl;
+	cout << "Eta': " << età << endl;
+	cout << "Sesso: " << sesso << endl;
+	cout << "Altezza: " << altezza << endl;
+	cout << "Colore occhi: " << occhi << endl;
+	cout << "Colore capelli: " << capelli << endl;
 }
