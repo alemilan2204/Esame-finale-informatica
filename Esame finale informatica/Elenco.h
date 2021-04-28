@@ -11,8 +11,9 @@ private:
 
 public:
 	Elenco();
-	void StampaElenco(forward_list<Persone> elenc);
-	void AggiungiElemento( Persone persona);
 	forward_list<Persone> GetLsit();
+	void StampaElenco(forward_list<Persone> elenc);
+	void AggiungiElemento(Persone persona);
+
 };
 

@@ -3,6 +3,13 @@
 
 Elenco::Elenco(){}
 
+forward_list<Persone> Elenco::GetLsit()
+{
+	elenco;
+	
+	return elenco;
+
+}
 
 void Elenco::StampaElenco(forward_list<Persone> elenc) 
 {
@@ -20,10 +27,3 @@ void Elenco::AggiungiElemento(Persone persona)
 	return;
 }
 
-forward_list<Persone> Elenco::GetLsit()
-{
-	elenco;
-	
-	return elenco;
-
-}

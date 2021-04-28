@@ -9,14 +9,15 @@ private:
 	string nome = "";
 	string cognome = "";
 	int età = 0;
-	char sesso;
-	float altezza = 0.0;
+	char sesso = 0;
+	float altezza = 0;
 	string occhi = "";		//colore occhi
 	string capelli = "";	//colore capelli
 	
 public:
 
 	Persone(string name, string surname, int age, char sex, float heigh, string eye, string hair);
+	Persone();
 	string GetNome();
 	string GetCognome();
 	int GetNomEta();
@@ -35,5 +36,7 @@ public:
 	void SetCapelli(string hair);
 	
 	void StampaInformazioni();
+
+	Persone CreaPersona(Persone persona1);
 };
 
