@@ -1,6 +1,6 @@
 #include "Persone.h"
 
-Persone::Persone(string name, string surname, int age, char sex, float heigh, string eye, string hair)
+Persone::Persone(string name, string surname, int age, char sex, float heigh, string eye, string hair, string codicefiscale)
 {
 	nome = name;
 	cognome = surname;
@@ -12,6 +12,8 @@ Persone::Persone(string name, string surname, int age, char sex, float heigh, st
 }
 
 Persone::Persone() {}
+
+Persone::~Persone() {}
 
 string Persone::GetNome()
 {
@@ -47,6 +49,12 @@ string Persone::GetCapelli()
 {
 	return capelli;
 }
+
+string Persone::GetCF()
+{
+	return cf;
+}
+
 
 
 void Persone::SetNome(string name)
@@ -91,6 +99,14 @@ void Persone::SetCapelli(string hair)
 	return;
 }
 
+void Persone::SetCF(string codice)
+{
+	cf = codice;
+}
+
+
+
+
 void Persone::StampaInformazioni() 
 {
 	cout << "Nome: " << nome << endl;
@@ -114,7 +130,7 @@ Persone Persone::CreaPersona(Persone persona1)
 
 	 //= Persone(name, surname, age, sex, heigh, eye, hair);
 
-	cout << "Menu' creazione persona . . . " << endl;
+	cout << "\n[ Menu' creazione persona ]\n" << endl;
 	cout << "Inserire nome persona: ";
 	cin >> name;
 	persona1.SetNome(name);
@@ -150,6 +166,9 @@ Persone Persone::CreaPersona(Persone persona1)
 	cout << "Inserire capelli persona: ";
 	cin >> hair;
 	persona1.SetCapelli(hair);
+
+	cout << "Persona creata correttamente! ";
+	_getch();
 
 	return persona1;
 	

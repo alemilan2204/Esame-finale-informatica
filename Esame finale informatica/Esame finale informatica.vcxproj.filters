@@ -24,12 +24,18 @@
     <ClCompile Include="Elenco.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
+    <ClCompile Include="Grafica.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Persone.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
     <ClInclude Include="Elenco.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="Grafica.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
   </ItemGroup>
