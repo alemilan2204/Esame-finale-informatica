@@ -3,7 +3,7 @@
 
 Elenco::Elenco(){}
 
-forward_list<Persone> Elenco::GetLsit()
+list<Persone> Elenco::GetList()
 {
 	elenco;
 	
@@ -11,14 +11,24 @@ forward_list<Persone> Elenco::GetLsit()
 
 }
 
-void Elenco::StampaElenco(forward_list<Persone> elenc) 
+void Elenco::StampaElenco(list<Persone> elenc) 
 {
-	
-	cout << "Elementi della lista: \n"; 
-	for (Persone& x : elenc) 
-	{ 
-		cout << x.GetNome() << endl; 
-	};
+	if (elenc.size() == 0)
+	{
+		cout << "\nELENCO VOUTO";
+	}
+	else
+	{
+
+		cout << "\nElementi della lista: \n\n"; 
+		for (Persone& x : elenc) 
+		{ 
+			//cout << x.GetNome() << " " << x.GetCognome() << "	| Codice fiscale: " << x.GetCF() << endl; 
+			x.StampaInformazioni();
+			cout << "\n-- -- -- -- -- -- -- --\n";
+		};
+
+	}
 }
 
 void Elenco::AggiungiElemento(Persone persona)

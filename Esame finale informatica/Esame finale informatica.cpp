@@ -6,7 +6,6 @@ using namespace std;
 
 int main()
 {
-    Elenco elenco = Elenco();
     Grafica grafica = Grafica();
 
     // -- -- -- -- -- -- -- 

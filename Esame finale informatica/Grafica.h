@@ -16,7 +16,11 @@ public:
 	void SetSezione(string s);
 	string GetSezione();
 	void LogicaGrafica(string section);
-	void Gestione(Grafica& gestoreGrafica, Elenco& elenco2);
+	void Gestione(Grafica& gestoreGrafica, Elenco& elenco2, Persone& persona2);
+	void ModificaPersona(Elenco& elenco2);
 };
-	void Home(char& operazione, Grafica& gestoreGrafica);
+	
+void Home(char& operazione, Grafica& gestoreGrafica);
+
+
 

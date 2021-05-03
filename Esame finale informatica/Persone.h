@@ -24,7 +24,7 @@ public:
 
 	string GetNome();
 	string GetCognome();
-	int GetNomEta();
+	int GetEta();
 	char GetSesso();
 	float GetAltezza();
 	string GetOcchi();
@@ -45,4 +45,3 @@ public:
 
 	Persone CreaPersona(Persone persona1);
 };
-
