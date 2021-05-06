@@ -5,10 +5,7 @@ Elenco::Elenco(){}
 
 list<Persone> Elenco::GetList()
 {
-	elenco;
-	
 	return elenco;
-
 }
 
 void Elenco::StampaElenco(list<Persone> elenc) 
@@ -22,8 +19,7 @@ void Elenco::StampaElenco(list<Persone> elenc)
 
 		cout << "\nElementi della lista: \n\n"; 
 		for (Persone& x : elenc) 
-		{ 
-			//cout << x.GetNome() << " " << x.GetCognome() << "	| Codice fiscale: " << x.GetCF() << endl; 
+		{
 			x.StampaInformazioni();
 			cout << "\n-- -- -- -- -- -- -- --\n";
 		};

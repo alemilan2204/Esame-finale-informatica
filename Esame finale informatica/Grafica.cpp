@@ -21,7 +21,7 @@ void Grafica::LogicaGrafica(string section)													// stati:  -HOME  -GESTI
 	Elenco elenco1 = Elenco();
 	Persone persona1 = Persone();
 
-	char operazione = 0;																	// serve per la navigazione dei menù
+	char operazione;																	// serve per la navigazione dei menù
 
 	while (gestoreGrafica.GetSezione() != "uscita")											// condizione di uscita
 	{
@@ -31,7 +31,7 @@ void Grafica::LogicaGrafica(string section)													// stati:  -HOME  -GESTI
 
 		// -- -- -- -- -- -- -- -- GESTTIONE ELENCO -- -- -- -- -- -- -- -- -- 
 
-		if (gestoreGrafica.GetSezione() == "gestione") { Gestione(gestoreGrafica, elenco1, persona1); }
+		if (gestoreGrafica.GetSezione() == "gestione") { GestioneElenco(gestoreGrafica, elenco1, persona1); }
 
 		// -- -- -- -- -- -- -- -- VISUALIZZAZIONE ELENCO -- -- -- -- -- -- -- 
 
@@ -49,13 +49,7 @@ void Grafica::LogicaGrafica(string section)													// stati:  -HOME  -GESTI
 
 }
 
-
-
-
-
-
-
-void Home(char& operazione, Grafica& gestoreGrafica)
+void Grafica::Home(char& operazione, Grafica& gestoreGrafica)
 {
 	system("cls");																				// pulisce console e stampa le istruzioni
 	cout << "Benvenuto nel database, selezione l'operazione da fare tra:"
@@ -63,9 +57,13 @@ void Home(char& operazione, Grafica& gestoreGrafica)
 
 	cin >> operazione;
 
+
 	while (operazione != 'G' && operazione != 'V' && operazione != 'U'							//  verifica che i caratteri siano diversi da G,V,U,g,v,u e se lo sono li richiede
 		&& operazione != 'g' && operazione != 'v' && operazione != 'u')
 	{
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		fflush(stdin);
 		cout << "Carattere non riconosciuto! ";
 		cout << "\nInserieci operazione: ";
 		cin >> operazione;
@@ -88,16 +86,7 @@ void Home(char& operazione, Grafica& gestoreGrafica)
 }
 
 
-
-
-
-
-
-
-
-
-
-void Grafica::Gestione(Grafica& gestoreGrafica, Elenco& elenco2, Persone& persona2)
+void Grafica::GestioneElenco(Grafica& gestoreGrafica, Elenco& elenco2, Persone& persona2)
 {
 	char op;
 	system("cls");
@@ -127,10 +116,6 @@ void Grafica::Gestione(Grafica& gestoreGrafica, Elenco& elenco2, Persone& person
 
 	gestoreGrafica.SetSezione("home");
 }
-
-
-
-
 
 
 void Grafica::ModificaPersona(Elenco& elenco2)
@@ -166,7 +151,7 @@ void Grafica::ModificaPersona(Elenco& elenco2)
 			cout << "\nE' questo il risultato che vuoi modificare? \n<Y/N>: ";
 
 			cin >> scelta;
-			while (scelta != 'Y' && scelta != 'N' && scelta != 'y' && scelta != 'n')
+			while (scelta != 'Y' && scelta != 'N' && scelta != 'y' && scelta != 'n')			// Verifica che la scelta sia uguale a Y o N
 			{
 				cout << "Carattere non riconosciuto!\nInserire nuovo carattere: ";
 				cin >> scelta;
@@ -190,6 +175,7 @@ void Grafica::ModificaPersona(Elenco& elenco2)
 					cin >> modificaInfoS;
 
 					x.SetNome(modificaInfoS);
+					cout << endl;
 					x.StampaInformazioni();
 					cout << endl;
 					break;
@@ -200,6 +186,7 @@ void Grafica::ModificaPersona(Elenco& elenco2)
 					cin >> modificaInfoS;
 
 					x.SetCognome(modificaInfoS);
+					cout << endl;
 					x.StampaInformazioni();
 					cout << endl;
 					break;
@@ -219,12 +206,13 @@ void Grafica::ModificaPersona(Elenco& elenco2)
 					}
 
 					x.SetEta(modificaInfoI);
+					cout << endl;
 					x.StampaInformazioni();
 					cout << endl;
 					break;
 						
 				case 'S':
-					cout << "Vecchio sesso: " << x.GetNome() << endl;
+					cout << "Vecchio sesso: " << x.GetSesso() << endl;
 					cout << "Inserire nuovo sesso: ";
 					cin >> modificaInfoC;
 
@@ -233,11 +221,9 @@ void Grafica::ModificaPersona(Elenco& elenco2)
 						cout << "Carattere non riconosciuto, inserire o 'M' o 'F': ";
 						cin >> modificaInfoC;
 					}
-					else
-					{
-						x.SetSesso(modificaInfoC);
-					}
-						
+					else { x.SetSesso(modificaInfoC); }
+
+					cout << endl;
 					x.StampaInformazioni();
 					cout << endl;
 					break;
@@ -256,46 +242,51 @@ void Grafica::ModificaPersona(Elenco& elenco2)
 						cin >> modificaInfoF;
 					}
 
+					cout << endl;
 					x.SetAltezza(modificaInfoF);
 					x.StampaInformazioni();
 					cout << endl;
 					break;
 						
 				case 'O':
-					cout << "Vecchio colore occhi: " << x.GetNome() << endl;
+					cout << "Vecchio colore occhi: " << x.GetOcchi() << endl;
 					cout << "Inserire nuovo colore occhi: ";
 					cin >> modificaInfoS;
 
 					x.SetOcchi(modificaInfoS);
+					cout << endl;
 					x.StampaInformazioni();
 					cout << endl;
 					break;
 						
 				case 'H':
-					cout << "Vecchio colore capelli: " << x.GetNome() << endl;
+					cout << "Vecchio colore capelli: " << x.GetCapelli() << endl;
 					cout << "Inserire nuovo colore capelli: ";
 					cin >> modificaInfoS;
 
+					cout << endl;
 					x.SetCapelli(modificaInfoS);
 					x.StampaInformazioni();
 					cout << endl;
 					break;
 						
 				case 'F':
-					cout << "Vecchio codice fiscale: " << x.GetNome() << endl;
+					cout << "Vecchio codice fiscale: " << x.GetCF() << endl;
 					cout << "Inserire nuovo codice fiscale: ";
 					cin >> modificaInfoS;
 
+					cout << endl;
 					x.SetCF(modificaInfoS);
 					x.StampaInformazioni();
 					cout << endl;
 					break;
 						
-				case 'n':
+				case 'n':																					// INCLUSIONE CARATTERI MINUSCOLI 
 					cout << "Vecchio nome: " << x.GetNome() << endl;
 					cout << "Inserire nuovo nome: ";
 					cin >> modificaInfoS;
 
+					cout << endl;
 					x.SetNome(modificaInfoS);
 					x.StampaInformazioni();
 					cout << endl;
@@ -306,6 +297,7 @@ void Grafica::ModificaPersona(Elenco& elenco2)
 					cout << "Inserire nuovo cognome: ";
 					cin >> modificaInfoS;
 
+					cout << endl;
 					x.SetCognome(modificaInfoS);
 					x.StampaInformazioni();
 					cout << endl;
@@ -316,7 +308,7 @@ void Grafica::ModificaPersona(Elenco& elenco2)
 					cout << "Inserire nuovo eta': ";
 					cin >> modificaInfoI;
 
-					while (cin.fail())																				// verifica che non siano inserite cose diverse da un numero
+					while (cin.fail())																				
 					{
 						cin.clear();
 						cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -325,13 +317,14 @@ void Grafica::ModificaPersona(Elenco& elenco2)
 						cin >> modificaInfoI;
 					}
 
+					cout << endl;
 					x.SetEta(modificaInfoI);
 					x.StampaInformazioni();
 					cout << endl;
 					break;
 						
 				case 's':
-					cout << "Vecchio sesso: " << x.GetNome() << endl;
+					cout << "Vecchio sesso: " << x.GetSesso() << endl;
 					cout << "Inserire nuovo sesso: ";
 					cin >> modificaInfoC;
 
@@ -344,7 +337,8 @@ void Grafica::ModificaPersona(Elenco& elenco2)
 					{
 						x.SetSesso(modificaInfoC);
 					}
-						
+					
+					cout << endl;
 					x.StampaInformazioni();
 					cout << endl;
 					break;
@@ -363,36 +357,38 @@ void Grafica::ModificaPersona(Elenco& elenco2)
 						cin >> modificaInfoF;
 					}
 
+					cout << endl;
 					x.SetAltezza(modificaInfoF);
 					x.StampaInformazioni();
 					cout << endl;
 					break;
 						
 				case 'o':
-					cout << "Vecchio colore occhi: " << x.GetNome() << endl;
+					cout << "Vecchio colore occhi: " << x.GetOcchi() << endl;
 					cout << "Inserire nuovo colore occhi: ";
 					cin >> modificaInfoS;
 
+					cout << endl;
 					x.SetOcchi(modificaInfoS);
 					x.StampaInformazioni();
 					cout << endl;
 					break;
 						
 				case 'h':
-					cout << "Vecchio colore capelli: " << x.GetNome() << endl;
+					cout << "Vecchio colore capelli: " << x.GetCapelli() << endl;
 					cout << "Inserire nuovo colore capelli: ";
 					cin >> modificaInfoS;
-
+					cout << endl;
 					x.SetCapelli(modificaInfoS);
 					x.StampaInformazioni();
 					cout << endl;
 					break;
 						
 				case 'f':
-					cout << "Vecchio codice fiscale: " << x.GetNome() << endl;
+					cout << "Vecchio codice fiscale: " << x.GetCF() << endl;
 					cout << "Inserire nuovo codice fiscale: ";
 					cin >> modificaInfoS;
-
+					cout << endl;
 					x.SetCF(modificaInfoS);
 					x.StampaInformazioni();
 					cout << endl;

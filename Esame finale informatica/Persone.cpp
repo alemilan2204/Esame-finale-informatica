@@ -13,8 +13,6 @@ Persone::Persone(string name, string surname, int age, char sex, float height, s
 
 Persone::Persone() {}
 
-Persone::~Persone() {}
-
 string Persone::GetNome()
 {
 	return nome;
@@ -143,10 +141,12 @@ Persone Persone::CreaPersona(Persone persona1)
 	
 	cout << "Inserire eta persona: ";
 	cin >> age;
+
 	while (cin.fail())
 	{
 		cin.clear();
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		fflush(stdin);
 		cout << "Carattere non riconosciuto, deve essere inserito un numero: ";
 		cin >> age;
 	}
@@ -157,14 +157,11 @@ Persone Persone::CreaPersona(Persone persona1)
 
 	while (sex != "M" && sex != "F" && sex != "m" && sex != "f")
 	{
-		
-
 		cout << "Carattere non riconosciuto, inserire o 'M' o 'F': ";
 		cin >> sex;
-
 	}
-	persona1.SetSesso(sex[0]);
 
+	persona1.SetSesso(sex[0]);
 
 	cout << "Inserire altezza persona: ";
 	cin >> height;
@@ -172,9 +169,11 @@ Persone Persone::CreaPersona(Persone persona1)
 	{
 		cin.clear();
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		fflush(stdin);
 		cout << "Carattere non riconosciuto, deve essere inserito un numero: ";
 		cin >> height;
 	}
+
 	persona1.SetAltezza(height);
 	
 	cout << "Inserire occhi persona: ";

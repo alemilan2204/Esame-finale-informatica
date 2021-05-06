@@ -12,8 +12,9 @@ private:
 public:
 	Elenco();
 	list<Persone> GetList();
-	void StampaElenco(list<Persone> elenc);
+
 	void AggiungiElemento(Persone persona);
+	void StampaElenco(list<Persone> elenc);
 
 };
 

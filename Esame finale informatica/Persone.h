@@ -20,7 +20,6 @@ public:
 
 	Persone(string name, string surname, int age, char sex, float heigh, string eye, string hair, string codicefiscale);
 	Persone();
-	~Persone();
 
 	string GetNome();
 	string GetCognome();
